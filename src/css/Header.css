@@ -1,0 +1,37 @@
+#menu {
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    background-color: rgb(30, 30, 30);
+}
+
+.site-name {
+    color: white;
+    margin-left: 0.5rem;
+    margin-right: 8rem;
+    font-size: clamp(1rem, 2vw, 4rem);
+    font-family: monospace;
+}
+
+#menu-items {
+    margin-left: 0.5rem;
+}
+
+#menu-items:hover > .menu-item {
+    opacity: 0.3;
+}
+
+#menu-items:hover > .menu-item:hover {
+    opacity: 1;
+}
+
+.menu-item {
+    color: white;
+    font-size: clamp(1rem, 2vw, 4rem);
+    font-family: "Ibarra Real Nova", serif;
+
+    text-decoration: none;
+    padding: 1rem;
+    transition: opacity 400ms ease;
+}
+

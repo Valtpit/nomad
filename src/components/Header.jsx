@@ -1,11 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "../css/Header.css"
 
 function Header() {
   return (
-    <div>
-        <Link to="/" >Home</Link>
-        <Link to="TopHeadlines">Top Headlines</Link>
+    <div id="menu">
+      <div className='site-name'>
+        <p>News site</p>
+      </div>
+      <div id="menu-items">
+          <Link className='menu-item' to="/" >Home</Link>
+          <Link className='menu-item' to="TopHeadlines">Top Headlines</Link>
+      </div>
     </div>
   )
 }
