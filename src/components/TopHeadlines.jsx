@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import Details from './Details'
 
+import "../css/TopHeadlines.css"
+
 function TopHeadlines () {
   const [items, setItems] = useState([])
   const [country, setCountry] = useState("gb")
@@ -54,6 +56,8 @@ function TopHeadlines () {
         author={selectedItem.author}
         image={selectedItem.urlToImage}
         description={selectedItem.description}
+        url={selectedItem.url}
+        content={selectedItem.content}
         close={close}
       ></Details>
     )
@@ -65,43 +69,52 @@ function TopHeadlines () {
     return (
       <div className='bg'>
         <div className='body'>
-          {/* maan valinta */}
-          <div>
-          <label htmlFor="counrty">Country selection:</label>
-          <select name="country" id="country" onChange={e => setCountry(e.target.value)}>
-            {countries.map(res => (
-                  <option key={res.short} value={res.short}>{res.long}</option>
-              ))}
-          </select>
-          </div>
-          {/* kategorian valinta */}
-          <div>
-          <label htmlFor="category">Category selection:</label>
-          <select name="category" id="category" onChange={e => setCategory(e.target.value)}>
-            {categories.map(res => (
-                  <option key={res} value={res}>{res}</option>
-              ))}
-          </select>
-          </div>
-          {/* random uutinen nappi */}
-          <div>
-            <p>Click the button for a random news article</p>
-            <button onClick={e => setSelectedItem(items[randomNumber])}>
-              Random button
-            </button>
+          <div className='top-selections'>
+            <div className='top-item'>
+              <div className='selections'>
+                <div className='selection'>
+                  {/* maan valinta */}
+                  <label htmlFor="counrty">Country selection:</label>
+                  <select name="country" id="country" onChange={e => setCountry(e.target.value)}>
+                    {countries.map(res => (
+                          <option key={res.short} value={res.short}>{res.long}</option>
+                      ))}
+                  </select>
+                </div>
+                <div>
+                  {/* kategorian valinta */}
+                  <label htmlFor="category">Category selection:</label>
+                  <select name="category" id="category" onChange={e => setCategory(e.target.value)}>
+                    {categories.map(res => (
+                          <option key={res} value={res}>{res}</option>
+                      ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+            {/* random uutinen nappi */}
+            <div className='top-item'>
+              <p>Click here for a random news article!</p>
+              <button onClick={e => setSelectedItem(items[randomNumber])}>
+                Random article
+              </button>
+            </div>
           </div>
 
-          <div>
+          <div className='article-container'>
             {items.map(item => (
               <div
                 key={item.title}
                 onClick={e => setSelectedItem(item)}
-                className='news'
+                className='article'
               >
-                <h3>{item.title}</h3>
-                <p>Author: {item.author}</p>
-                <img src={item.urlToImage}></img>
-                <hr></hr>
+                <div className='image-container'>
+                  <img src={item.urlToImage}></img>
+                </div>
+                <div className="text-container">
+                  <h3>{item.title}</h3>
+                  <p>Author: {item.author}</p>
+                </div>
               </div>
             ))}
           </div>

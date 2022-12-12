@@ -1,0 +1,27 @@
+.details-container {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.details-img {
+
+    width: 45%;
+}
+
+.close-article-container {
+    padding-top: 1rem;
+}
+
+.close-article {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    background-color: rgb(30, 30, 30);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    margin-right: 1rem;
+}
+
+.close-article:hover {
+    background-color: rgb(35, 35, 35);
+}
