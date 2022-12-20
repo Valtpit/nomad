@@ -12,9 +12,10 @@ export default function Details (props) {
         <h3>{props.description}</h3>
         <p>{props.content}</p>
       </div>
-      {/* linkki takaisin artikkeleihin */}
       <div className='close-article-container'>
+        {/* linkki takaisin artikkeleihin */}
         <a href='#' className='close-article' onClick={props.close}>Back to articles</a>
+        {/* linkki uutisen omalle sivulle */}
         <a href={props.url} target="_blank" className='close-article' >link to the full article</a>
       </div>
     </div>

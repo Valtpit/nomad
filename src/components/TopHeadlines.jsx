@@ -14,6 +14,7 @@ function TopHeadlines () {
   const countries = [{short:"gb", long: "United Kingdom"}, {short:"au", long: "Australia"}, {short:"ca", long: "Canada"}, {short:"us", long: "United States"}, {short:"de", long: "Germany"}, {short:"se", long: "Sweden"}]
   const categories = ["general", "business", "entertainment", "health", "science", "sports", "technology"]
 
+  /* Hakee uutiset newsapilla */
   useEffect(() => {
     const URL = 'https://newsapi.org/v2'
     let CRITERIA = "/top-headlines?country="+ country +"&category=" + category 
@@ -39,16 +40,19 @@ function TopHeadlines () {
       )
   }, [country, category])
 
+  /* random uutisen hakemiseen */
   function RNG (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
   }
 
   let randomNumber = RNG(0, 20)
 
+  /* sulkee uutisen yksityiskohdat */
   function close () {
     setSelectedItem(null)
   }
 
+  /* jos uutista on klikattu */
   if (selectedItem != null) {
     return (
       <Details
@@ -62,10 +66,12 @@ function TopHeadlines () {
       ></Details>
     )
   } else if (error) {
+    /* jos on tullut virhe */
     return <p>{error.message}</p>
   } else if (!isLoaded) {
     return <p>Loading...</p>
   } else {
+    /* näyttää uutislistan */
     return (
       <div className='bg'>
         <div className='body'>
@@ -100,7 +106,8 @@ function TopHeadlines () {
               </button>
             </div>
           </div>
-
+          
+          {/* uutis lista */}
           <div className='article-container'>
             {items.map(item => (
               <div

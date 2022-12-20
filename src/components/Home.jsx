@@ -5,6 +5,7 @@ import "../css/Home.css"
 function Home() {
     
   return (
+    /* etusivun tekstit */
     <div>
         <div className='text-background'>
           <div className='home-text'>

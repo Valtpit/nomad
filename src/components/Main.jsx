@@ -8,8 +8,11 @@ import TopHeadlines from './TopHeadlines'
 
 function Main() {
   return (
+    /* hoitaa sivunen linkityksen */
     <React.Fragment>
+        {/* yläpalkki */}
         <Header/>
+        {/* sivut */}
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/TopHeadlines" element={<TopHeadlines/>} />
